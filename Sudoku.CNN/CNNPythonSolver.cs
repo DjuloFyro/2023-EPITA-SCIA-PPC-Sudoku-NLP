@@ -15,7 +15,18 @@ public class CNNPythonSolver : PythonSolverBase
 
             // create a Python variable "instance"
             scope.Set("instance", pyCells);
-
+            
+            // Create a new Path variable that holds the path model
+            try
+            {
+                string modelPath = Path.Combine(Environment.CurrentDirectory, @".\Resources\", "model", "sudoku.model");
+                Console.WriteLine($"model Path:\n{modelPath}");
+                scope.Set("modelPath", modelPath);
+            }
+            catch (Exception e) 
+            {
+                Console.WriteLine(e);
+            }
             // run the Python script
             string code = Resources.PythonSolver_py;
             scope.Exec(code);

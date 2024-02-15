@@ -3,7 +3,8 @@ import keras
 import numpy as np
 from os.path import abspath
 
-model = keras.models.load_model(abspath('Sudoku.CNN/Resources/model/sudoku.model'))
+#model = keras.models.load_model(abspath('Sudoku.CNN/Resources/model/sudoku.model'))
+model = keras.models.load_model(modelPath)
 
 def flatten(array2D):
     result = []
